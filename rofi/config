@@ -1,3 +1,5 @@
+!rofi.theme: ~/.cache/wal/internet-guy.rasi
+
 rofi.theme: ~/.cache/wal/colors-rofi-dark.rasi
 
 rofi.color-enabled: true
@@ -17,3 +19,4 @@ rofi.width: 1000
 rofi.padding: 100
 rofi.bw: 0
 rofi.auto-select: false
+rofi.show-icons: true

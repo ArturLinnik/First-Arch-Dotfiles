@@ -39,9 +39,20 @@ if [ -f "$usermodmap" ]; then
     xmodmap "$usermodmap"
 fi
 
+# runs xbindkeys
+
+xbindkeys &
+
+# black background for avoiding grey of nitrogen
+
+feh --bg-scale /home/artur/Documents/Images/.black.jpg & #Need feh
+
 # sets background
 
-feh --bg-scale /home/artur/Documents/Wallpapers/wallhaven-oxeo25.jpg
+nitrogen --restore & #Need nitrogen
+
+# picom (transparency)
+picom & #Need picom
 
 # start some nice programs
 
