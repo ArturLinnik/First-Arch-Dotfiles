@@ -47,7 +47,7 @@ imap <C-v> <C-r><C-o>+
 set hlsearch
 nnoremap <CR> :noh<CR>
 
-" Ignoe case sensitive
+" Ignore case sensitive
 set ignorecase
 
 " Peachpuff colorscheme
@@ -55,7 +55,7 @@ colorscheme peachpuff
 
 " Shows line numbers in a dark grey color.
 highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE 
-highlight MatchParen term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE 
+highlight MatchParen term=bold cterm=NONE ctermfg=NONE ctermbg=DarkGrey gui=NONE guifg=DarkGrey guibg=NONE 
 
 " Moving between splited terminals by ^H ^J ^K and  ^L
 set splitbelow
@@ -67,8 +67,12 @@ nnoremap <C-H> <C-W><C-H>
 " ^N for opening NerdTree
 map <C-n> :NERDTreeToggle<CR>
 
+" Open and close terminal with ^Q
+noremap <C-q> :terminal<CR>
+tnoremap <C-q> <C-\><C-n>:q!<CR>
+
 " Changed NerdTree arrows
-let g:NERDTreeDirArrowExpandable = '> '
+let g:NERDTreeDirArrowExpandable = '>'
 let g:NERDTreeDirArrowCollapsible = 'v'
 
 " Full highlighting in python files
@@ -77,15 +81,28 @@ let g:python_highlight_all = 1
 " DevIcons needed configuration
 set encoding=UTF-8
 
-"" EMMET -------------------------------------------------
-"
+" Set split below
+set splitbelow
+
+" Terminal size
+set termwinsize=10x0
+
+" Change window from terminal with ^H ^J ^K ^L
+tnoremap <C-J> <C-W><C-J>
+tnoremap <C-K> <C-W><C-K>
+tnoremap <C-L> <C-W><C-L>
+tnoremap <C-H> <C-W><C-H>
+
+" Normal mode in terminal with jj
+tnoremap jj <C-\><C-n>
+
 " Enables Emmet only in html and css files.
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
-"
+
 " Completes html tags pressing ,, (, 2 times).
 let g:user_emmet_leader_key=','
-"
+
 "" Shows tags and </> in white color.
 "highlight link htmlTagName white
 "highlight link htmlTag htmlTagName
