@@ -44,6 +44,7 @@ vmap <C-v> c<ESC>"+p
 imap <C-v> <C-r><C-o>+
 
 " Highlight search clearing highlighted with enter.
+set incsearch
 set hlsearch
 nnoremap <CR> :noh<CR>
 
@@ -71,6 +72,10 @@ map <C-n> :NERDTreeToggle<CR>
 noremap <C-q> :terminal<CR>
 tnoremap <C-q> <C-\><C-n>:q!<CR>
 
+" Execute python files with F9
+autocmd FileType python imap <buffer> <F9> <esc>:w<CR>:!clear<CR>:exec '!python3' shellescape(@%, 1)<CR>
+autocmd FileType python map <buffer> <F9> :w<CR>:!clear<CR>:exec '!python3' shellescape(@%, 1)<CR>
+
 " Changed NerdTree arrows
 let g:NERDTreeDirArrowExpandable = '>'
 let g:NERDTreeDirArrowCollapsible = 'v'
@@ -95,6 +100,9 @@ tnoremap <C-H> <C-W><C-H>
 
 " Normal mode in terminal with jj
 tnoremap jj <C-\><C-n>
+
+" Changes Search highlight color
+highlight Search ctermbg=DarkGrey
 
 " Enables Emmet only in html and css files.
 let g:user_emmet_install_global = 0
