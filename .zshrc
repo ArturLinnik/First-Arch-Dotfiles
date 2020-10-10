@@ -152,6 +152,12 @@ function cursos(){
 	cd /home/artur/Documents/Cursos-apuntes
 }
 
+# Alarm clock
+function alarma(){
+	segundos=$1
+	sleep $segundos && mplayer /home/artur/Documents/Music/COLORES/01\ -\ J\ Balvin\ -\ Amarillo.mp3
+}
+
 # Use Ctrl and Shift selection in shell
 
 r-delregion() {
@@ -199,13 +205,17 @@ for key     kcap   seq        mode   widget (
     home    khome  $'\EOH'    deselect beginning-of-line
     home2   x      $'\E1~'    deselect beginning-of-line
 
-    csleft  x      $'\E[1;5D' select   backward-word
-    csright x      $'\E[1;5C' select   forward-word
+    #csleft  x      $'\E[1;5D' select   backward-word
+    csleft  x      $'^[[d' select   backward-word
+    #csright x      $'\E[1;5C' select   forward-word
+    csright x      $'^[[c' select   forward-word
     csend   x      $'\E[1;5F' select   end-of-line
     cshome  x      $'\E[1;5H' select   beginning-of-line
 
     #cleft   x      $'\E[1;5D' deselect backward-word
+    cleft   x      $'^[Od' deselect backward-word
     #cright  x      $'\E[1;5C' deselect forward-word
+    cright  x      $'^[Oc' deselect forward-word
 
     del     kdch1   $'\E[3~'  delregion delete-char
     bs      x       $'^?'     delregion backward-delete-char
@@ -217,6 +227,8 @@ for key     kcap   seq        mode   widget (
   zle -N key-$key
   bindkey ${terminfo[$kcap]-$seq} key-$key
 }
+
+alias feh='feh -F'
 
 # Syntax highlighting
 # source ~/.oh-my-zsh/custom/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
