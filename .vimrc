@@ -19,6 +19,10 @@ Plugin 'vim-python/python-syntax'
 Plugin 'mattn/emmet-vim'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'tmsvg/pear-tree'
+Plugin 'christoomey/vim-sort-motion'
+Plugin 'christoomey/vim-titlecase'
+Plugin 'christoomey/vim-g-dot'
+Plugin 'mg979/vim-visual-multi'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
