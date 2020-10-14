@@ -23,6 +23,7 @@ Plugin 'christoomey/vim-sort-motion'
 Plugin 'christoomey/vim-titlecase'
 Plugin 'christoomey/vim-g-dot'
 Plugin 'mg979/vim-visual-multi'
+" Installed pudb too"
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
