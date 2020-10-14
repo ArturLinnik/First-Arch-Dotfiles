@@ -29,7 +29,8 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 " Pressing jj instead of 'Esc' to enter INSERT mode.
-imap jj <Esc> 
+imap jj <Esc>
+imap kk <Esc>
 
 " Visualizes numbers on the left of the screen according to the line you are
 " and shows the line you are in.
@@ -46,6 +47,9 @@ vmap <C-c> "+yi
 vmap <C-x> "+c
 vmap <C-v> c<ESC>"+p
 imap <C-v> <C-r><C-o>+
+
+" Go back where cursor was
+nmap <Space> ``
 
 " Highlight search clearing highlighted with enter.
 set incsearch
@@ -79,6 +83,10 @@ tnoremap <C-q> <C-\><C-n>:q!<CR>
 " Execute python files with F9
 autocmd FileType python imap <buffer> <F9> <esc>:w<CR>:!clear<CR>:exec '!python3' shellescape(@%, 1)<CR>
 autocmd FileType python map <buffer> <F9> :w<CR>:!clear<CR>:exec '!python3' shellescape(@%, 1)<CR>
+
+" Execute pudb with F6
+autocmd FileType python imap <buffer> <F6> <esc>:w<CR>:!clear<CR>:exec '!python3 -m pudb.run' shellescape(@%, 1)<CR>
+autocmd FileType python map <buffer> <F6> :w<CR>:!clear<CR>:exec '!python3 -m pudb.run' shellescape(@%, 1)<CR>
 
 " Changed NerdTree arrows
 let g:NERDTreeDirArrowExpandable = '>'
