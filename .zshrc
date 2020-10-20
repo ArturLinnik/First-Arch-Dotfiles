@@ -124,11 +124,11 @@ _comp_options+=(globdots)		# Include hidden files.
 
 # Change cursor
 
-_fix_cursor() {
-   echo -ne '\e[5 q'
-}
+# _fix_cursor() {
+#    echo -ne '\e[5 q'
+# }
 
-precmd_functions+=(_fix_cursor)
+# precmd_functions+=(_fix_cursor)
 
 # Changing "ls" to "exa"
 alias ls='exa --color=always --group-directories-first'		# Need exa
@@ -155,83 +155,104 @@ function cursos(){
 # Alarm clock
 function alarma(){
 	segundos=$1
-	sleep $segundos && mplayer /home/artur/Documents/Music/COLORES/01\ -\ J\ Balvin\ -\ Amarillo.mp3
+	sleep $segundos && mplayer /home/artur/Documents/Others/alarma/Alarmas\ y\ sirenas\ -\ Efectos\ de\ sonido.m4a
 }
+
+# Ctrl+Left and Ctrl+Right (urxvt and tmux)
+bindkey "^[[1;5D" backward-word
+bindkey "^[[1;5C" forward-word
+
+# Ctrl+Backspace (urxvt and tmux)
+bindkey "^H" backward-kill-word
+
+# Ctrl+Delete (urxvt)
+bindkey "^[[3^" kill-word
+
+# Delete and Ctrl+Delete (tmux)
+bindkey "^[[3~" delete-char
+bindkey "^[[3;5~" kill-word
+
+# Home and End (urxvt)
+bindkey "^[[7~" beginning-of-line
+bindkey "^[[8~" end-of-line
+
+# Home and End (tmux)
+bindkey "^[[1~" beginning-of-line
+bindkey "^[[4~" end-of-line
 
 # Use Ctrl and Shift selection in shell
 
-r-delregion() {
-  if ((REGION_ACTIVE)) then
-     zle kill-region
-  else 
-    local widget_name=$1
-    shift
-    zle $widget_name -- $@
-  fi
-}
+# r-delregion() {
+#   if ((REGION_ACTIVE)) then
+#      zle kill-region
+#   else 
+#     local widget_name=$1
+#     shift
+#     zle $widget_name -- $@
+#   fi
+# }
 
-r-deselect() {
-  ((REGION_ACTIVE = 0))
-  local widget_name=$1
-  shift
-  zle $widget_name -- $@
-}
+# r-deselect() {
+#   ((REGION_ACTIVE = 0))
+#   local widget_name=$1
+#   shift
+#   zle $widget_name -- $@
+# }
 
-r-select() {
-  ((REGION_ACTIVE)) || zle set-mark-command
-  local widget_name=$1
-  shift
-  zle $widget_name -- $@
-}
+# r-select() {
+#   ((REGION_ACTIVE)) || zle set-mark-command
+#   local widget_name=$1
+#   shift
+#   zle $widget_name -- $@
+# }
 
-for key     kcap   seq        mode   widget (
-    sleft   kLFT   $'\e[1;2D' select   backward-char
-    sright  kRIT   $'\e[1;2C' select   forward-char
-    sup     kri    $'\e[1;2A' select   up-line-or-history
-    sdown   kind   $'\e[1;2B' select   down-line-or-history
+# for key     kcap   seq        mode   widget (
+#     sleft   kLFT   $'\e[1;2D' select   backward-char
+#     sright  kRIT   $'\e[1;2C' select   forward-char
+#     sup     kri    $'\e[1;2A' select   up-line-or-history
+#     sdown   kind   $'\e[1;2B' select   down-line-or-history
 
-    send    kEND   $'\E[1;2F' select   end-of-line
-    send2   x      $'\E[4;2~' select   end-of-line
+#     send    kEND   $'\E[1;2F' select   end-of-line
+#     send2   x      $'\E[4;2~' select   end-of-line
 
-    shome   kHOM   $'\E[1;2H' select   beginning-of-line
-    shome2  x      $'\E[1;2~' select   beginning-of-line
+#     shome   kHOM   $'\E[1;2H' select   beginning-of-line
+#     shome2  x      $'\E[1;2~' select   beginning-of-line
 
-    left    kcub1  $'\EOD'    deselect backward-char
+    # left    kcub1  $'\EOD'    deselect backward-char
     #right   kcuf1  $'\EOC'    deselect forward-char
 
-    end     kend   $'\EOF'    deselect end-of-line
-    end2    x      $'\E4~'    deselect end-of-line
+    # end     kend   $'\EOF'    deselect end-of-line
+    # end2    x      $'\E4~'    deselect end-of-line
 
-    home    khome  $'\EOH'    deselect beginning-of-line
-    home2   x      $'\E1~'    deselect beginning-of-line
+    # home    khome  $'\EOH'    deselect beginning-of-line
+    # home2   x      $'\E1~'    deselect beginning-of-line
 
     #csleft  x      $'\E[1;5D' select   backward-word
-    csleft  x      $'^[[d' select   backward-word
+    # csleft  x      $'^[[d' select   backward-word
     #csright x      $'\E[1;5C' select   forward-word
-    csright x      $'^[[c' select   forward-word
-    csend   x      $'\E[1;5F' select   end-of-line
-    cshome  x      $'\E[1;5H' select   beginning-of-line
+    # csright x      $'^[[c' select   forward-word
+    # csend   x      $'\E[1;5F' select   end-of-line
+    # cshome  x      $'\E[1;5H' select   beginning-of-line
 
     #cleft   x      $'\E[1;5D' deselect backward-word
-    cleft   x      $'^[Od' deselect backward-word
+    # cleft   x      $'^[Od' deselect backward-word
     #cright  x      $'\E[1;5C' deselect forward-word
-    cright  x      $'^[Oc' deselect forward-word
+    # cright  x      $'^[Oc' deselect forward-word
 
-    del     kdch1   $'\E[3~'  delregion delete-char
-    bs      x       $'^?'     delregion backward-delete-char
+    # del     kdch1   $'\E[3~'  delregion delete-char
+    # bs      x       $'^?'     delregion backward-delete-char
 
-  ) {
-  eval "key-$key() {
-    r-$mode $widget \$@
-  }"
-  zle -N key-$key
-  bindkey ${terminfo[$kcap]-$seq} key-$key
-}
+  # ) {
+  # eval "key-$key() {
+    # r-$mode $widget \$@
+  # }"
+  # zle -N key-$key
+  # bindkey ${terminfo[$kcap]-$seq} key-$key
+# }
 
 alias feh='feh -F'
 
 # Syntax highlighting
 # source ~/.oh-my-zsh/custom/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
 
-#
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh 	# Need zsh-autosuggestions

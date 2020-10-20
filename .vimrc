@@ -23,7 +23,7 @@ Plugin 'christoomey/vim-sort-motion'
 Plugin 'christoomey/vim-titlecase'
 Plugin 'christoomey/vim-g-dot'
 Plugin 'mg979/vim-visual-multi'
-" Installed pudb too"
+Plugin 'suan/vim-instant-markdown'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -63,8 +63,13 @@ set ignorecase
 " Peachpuff colorscheme
 colorscheme peachpuff
 
+" Changes color background of the line you are in
+set cursorline
+hi CursorLine term=bold cterm=NONE ctermfg=NONE ctermbg=235
+
 " Shows line numbers in a dark grey color.
 highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE 
+highlight CursorLineNR term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE 
 highlight MatchParen term=bold cterm=NONE ctermfg=NONE ctermbg=DarkGrey gui=NONE guifg=DarkGrey guibg=NONE 
 
 " Moving between splited terminals by ^H ^J ^K and  ^L
@@ -81,6 +86,10 @@ map <C-n> :NERDTreeToggle<CR>
 noremap <C-q> :terminal<CR>
 tnoremap <C-q> <C-\><C-n>:q!<CR>
 
+" Write ``` with g`
+nnoremap g` i```<CR>```<Esc>O
+inoremap g` ```<CR>```<Esc>O
+
 " Execute python files with F9
 autocmd FileType python imap <buffer> <F9> <esc>:w<CR>:!clear<CR>:exec '!python3' shellescape(@%, 1)<CR>
 autocmd FileType python map <buffer> <F9> :w<CR>:!clear<CR>:exec '!python3' shellescape(@%, 1)<CR>
@@ -88,6 +97,10 @@ autocmd FileType python map <buffer> <F9> :w<CR>:!clear<CR>:exec '!python3' shel
 " Execute pudb with F6
 autocmd FileType python imap <buffer> <F6> <esc>:w<CR>:!clear<CR>:exec '!python3 -m pudb.run' shellescape(@%, 1)<CR>
 autocmd FileType python map <buffer> <F6> :w<CR>:!clear<CR>:exec '!python3 -m pudb.run' shellescape(@%, 1)<CR>
+
+" Execute HTML files in Firefox with F9 and change to workspace 2
+autocmd FileType html imap <buffer> <F9> <esc>:w<CR>:!clear<CR>:exec '!firefox' shellescape(@%, 1)<CR>:exec '!i3-msg workspace2'<CR>
+autocmd FileType html map <buffer> <F9> :w<CR>:!clear<CR>:exec '!firefox' shellescape(@%, 1)<CR>:exec '!i3-msg workspace2'<CR>
 
 " Changed NerdTree arrows
 let g:NERDTreeDirArrowExpandable = '>'
@@ -123,6 +136,10 @@ autocmd FileType html,css EmmetInstall
 
 " Completes html tags pressing ,, (, 2 times).
 let g:user_emmet_leader_key=','
+
+" Disable Markdown realtime and autostart
+let g:instant_markdown_slow = 1
+let g:instant_markdown_autostart = 0
 
 "" Shows tags and </> in white color.
 "highlight link htmlTagName white

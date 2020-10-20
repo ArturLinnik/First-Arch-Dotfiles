@@ -63,10 +63,14 @@ exec --no-startup-id nm-applet
 
 # use these keys for focus, movement, and resize directions when reaching for
 # the arrows is not convenient
-set $up l
-set $down k
-set $left j
-set $right semicolon
+# set $up l
+# set $down k
+# set $left j
+# set $right semicolon
+set $up k
+set $down j
+set $left h
+set $right l
 
 # use Mouse+Mod1 to drag floating windows to their wanted position
 floating_modifier Mod1
@@ -265,7 +269,7 @@ exec --no-startup-id sudo tlp start	# Need TLP
 
 ## Programs assigned to workspaces
 
-exec --no-startup-id i3-msg 'workspace 1; exec urxvt'
+exec --no-startup-id i3-msg 'workspace 1; exec urxvt -e tmux'
 assign [class="firefox"] 2
 assign [class="TelegramDesktop"] 3
 for_window [class="Spotify"] move to workspace $WS4
