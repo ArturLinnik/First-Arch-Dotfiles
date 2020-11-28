@@ -1,4 +1,4 @@
-
+   
 " Vim vundle
 
 set nocompatible              " required
@@ -13,21 +13,29 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
-Plugin 'preservim/nerdtree'
-Plugin 'valloric/youcompleteme'
-Plugin 'vim-python/python-syntax'
-Plugin 'mattn/emmet-vim'
-Plugin 'ryanoasis/vim-devicons'
+" Plugin 'preservim/nerdtree'
+" Plugin 'valloric/youcompleteme'
+" Plugin 'vim-python/python-syntax'
+" Plugin 'mattn/emmet-vim'
+" Plugin 'ryanoasis/vim-devicons'
 Plugin 'tmsvg/pear-tree'
 Plugin 'christoomey/vim-sort-motion'
-Plugin 'christoomey/vim-titlecase'
+" Plugin 'christoomey/vim-titlecase'
 Plugin 'christoomey/vim-g-dot'
 Plugin 'mg979/vim-visual-multi'
-Plugin 'suan/vim-instant-markdown'
+" Plugin 'suan/vim-instant-markdown'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+" Plugin 'turbio/bracey.vim'
+" Plugin 'fatih/vim-go'
+" Plugin 'davidhalter/jedi-vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+" Jump a line when a word doesn't fit the screen instead of cutting it
+set linebreak
 
 " Pressing jj instead of 'Esc' to enter INSERT mode.
 imap jj <Esc>
@@ -50,12 +58,15 @@ vmap <C-v> c<ESC>"+p
 imap <C-v> <C-r><C-o>+
 
 " Go back where cursor was
-nmap <Space> ``
+" nmap <Space> ``
 
 " Highlight search clearing highlighted with enter.
 set incsearch
-set hlsearch
+" set hlsearch
 nnoremap <CR> :noh<CR>
+
+" Insert spaces from normal mode
+nnoremap <Space> i<Space><Esc>
 
 " Ignore case sensitive
 set ignorecase
@@ -98,9 +109,10 @@ autocmd FileType python map <buffer> <F9> :w<CR>:!clear<CR>:exec '!python3' shel
 autocmd FileType python imap <buffer> <F6> <esc>:w<CR>:!clear<CR>:exec '!python3 -m pudb.run' shellescape(@%, 1)<CR>
 autocmd FileType python map <buffer> <F6> :w<CR>:!clear<CR>:exec '!python3 -m pudb.run' shellescape(@%, 1)<CR>
 
-" Execute HTML files in Firefox with F9 and change to workspace 2
-autocmd FileType html imap <buffer> <F9> <esc>:w<CR>:!clear<CR>:exec '!firefox' shellescape(@%, 1)<CR>:exec '!i3-msg workspace2'<CR>
-autocmd FileType html map <buffer> <F9> :w<CR>:!clear<CR>:exec '!firefox' shellescape(@%, 1)<CR>:exec '!i3-msg workspace2'<CR>
+" Execute HTML files in Firefox with F9, change to workspace 2 and Enter again
+" the html file
+autocmd FileType html imap <buffer> <F9> <esc>:w<CR>:!clear<CR>:exec '!firefox' shellescape(@%, 1)<CR>:exec '!i3-msg workspace2'<CR><CR>
+autocmd FileType html map <buffer> <F9> :w<CR>:!clear<CR>:exec '!firefox' shellescape(@%, 1)<CR>:exec '!i3-msg workspace2'<CR><CR>
 
 " Changed NerdTree arrows
 let g:NERDTreeDirArrowExpandable = '>'
@@ -140,6 +152,11 @@ let g:user_emmet_leader_key=','
 " Disable Markdown realtime and autostart
 let g:instant_markdown_slow = 1
 let g:instant_markdown_autostart = 0
+
+filetype plugin on
+set omnifunc=syntaxcomplete#Complete
+
+highlight Pmenu ctermfg=15 ctermbg=4 guifg=#ffffff guibg=#000000
 
 "" Shows tags and </> in white color.
 "highlight link htmlTagName white
