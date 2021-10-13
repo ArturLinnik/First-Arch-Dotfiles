@@ -1,0 +1,75 @@
+{
+    "workbench.startupEditor": "newUntitledFile",
+    "editor.lineNumbers": "relative",
+    "vim.incsearch": true,
+    // "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.insertModeKeyBindings": [
+        {
+        "before": ["j", "h"],
+        "after": ["<Esc>"],
+        },
+        {
+        "before": ["k", "k"],
+        "after": ["<Esc>"]
+        }
+    ],
+    "editor.fontFamily": "'mononoki Nerd Font'",
+    "editor.fontSize": 15,
+    "editor.fontWeight": "bold",
+    "editor.wordWrap": "on",
+    "workbench.colorTheme": "One Dark Pro",
+    "files.autoSaveDelay": 400,
+	"code-runner.executorMap": {
+        "html": "firefox $fileName",
+		// "shellscript": "shellcheck $fileName && bash $fileName",
+    },
+    "code-runner.executorMapByFileExtension": {
+        ".m": "octave $fileName",
+        ".mat": "octave $fileName",
+    },
+	"code-runner.runInTerminal": true,
+	"code-runner.saveFileBeforeRun": true,
+	"workbench.colorCustomizations": {
+        "terminal.foreground": "#bbc5ff",
+        "terminal.background": "#282a36",
+        "terminal.ansiBlack": "#101010",
+        "terminal.ansiBrightBlack": "#5c6179",
+        "terminal.ansiRed": "#f07178",
+        "terminal.ansiBrightRed": "#ff8b92",
+        "terminal.ansiGreen": "#c3e88d",
+        "terminal.ansiBrightGreen": "#ddffa7",
+        "terminal.ansiYellow": "#ffcb6b",
+        "terminal.ansiBrightYellow": "#ffe585",
+        "terminal.ansiBlue": "#82aaff",
+        "terminal.ansiBrightBlue": "#9cc4ff",
+        "terminal.ansiMagenta": "#c792ea",
+        "terminal.ansiBrightMagenta": "#e1acff",
+        "terminal.ansiCyan": "#89ddff",
+        "terminal.ansiBrightCyan": "#a3f7ff",
+        "terminal.ansiWhite": "#d0d0d0",
+        "terminal.ansiBrightWhite": "#ffffff",
+    },
+	"terminal.integrated.cursorBlinking": true,
+    "window.titleBarStyle": "custom",
+    "workbench.colorCustomizations": {
+        "titleBar.activeBackground": "#282c34"
+    },
+    "python.linting.pylintArgs": [
+        "--extension-pkg-whitelist=pygame"
+    ],
+    "workbench.editorAssociations": [
+        {
+            "viewType": "jupyter-notebook",
+            "filenamePattern": "*.ipynb"
+        }
+    ],
+    "jupyter.askForKernelRestart": false,
+    "latex-workshop.view.pdf.viewer": "tab",
+    "python.linting.enabled": false,
+    "python.linting.lintOnSave": false,
+    "python.linting.pylintEnabled": false,
+    "python.linting.pylintUseMinimalCheckers": true,
+    "editor.acceptSuggestionOnEnter": "off",
+}
