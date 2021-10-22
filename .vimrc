@@ -1,3 +1,6 @@
+
+" packadd! dracula
+" syntax enable
    
 " Vim vundle
 
@@ -29,6 +32,8 @@ Plugin 'plasticboy/vim-markdown'
 " Plugin 'turbio/bracey.vim'
 " Plugin 'fatih/vim-go'
 " Plugin 'davidhalter/jedi-vim'
+Plugin 'tpope/vim-commentary'
+Plugin 'arcticicestudio/nord-vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -39,6 +44,7 @@ set linebreak
 
 " Pressing jj instead of 'Esc' to enter INSERT mode.
 imap jj <Esc>
+imap jh <Esc>
 imap kk <Esc>
 
 " Visualizes numbers on the left of the screen according to the line you are
@@ -72,7 +78,7 @@ nnoremap <Space> i<Space><Esc>
 set ignorecase
 
 " Peachpuff colorscheme
-colorscheme peachpuff
+colorscheme nord
 
 " Changes color background of the line you are in
 set cursorline
@@ -137,7 +143,7 @@ tnoremap <C-L> <C-W><C-L>
 tnoremap <C-H> <C-W><C-H>
 
 " Normal mode in terminal with jj
-tnoremap jj <C-\><C-n>
+tnoremap jh <C-\><C-n>
 
 " Changes Search highlight color
 highlight Search ctermbg=DarkGrey
