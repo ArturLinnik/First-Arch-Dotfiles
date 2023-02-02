@@ -1,0 +1,159 @@
+{
+    "workbench.startupEditor": "newUntitledFile",
+    "editor.lineNumbers": "relative",
+    "vim.incsearch": true,
+    // "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true,
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["j", "h"],
+            "after": ["<Esc>"]
+        },
+        {
+            "before": ["k", "k"],
+            "after": ["<Esc>"]
+        }
+    ],
+    "vim.normalModeKeyBindings": [
+        {
+            "before": ["Y"],
+            "after": ["y", "$"]
+        }
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["<C-n>"],
+            // "after": [],
+            "commands": [
+                {
+                    "command": ":nohl"
+                }
+            ]
+        }
+    ],
+    // "editor.fontFamily": "'Cascadia Code'",
+
+    "editor.fontFamily": "'Ubuntu Mono', monospace",
+    // "editor.fontFamily": "'Roboto Mono', monospace",
+    // "editor.fontFamily": "'Consolas'",
+    // "editor.fontFamily": "'Noto Sans Mono'",
+    // "editor.fontFamily": "Victor Mono",
+    // "editor.fontFamily": "'Monaco'",
+    // "editor.fontFamily": "'monokai'",
+    // "editor.fontFamily": "'Hack'",
+    // "editor.fontSize": 10,
+    "editor.fontSize": 16,
+    // "editor.fontSize": 18,
+    "editor.fontWeight": 500,
+    // "editor.fontWeight": 500,
+    // "editor.fontWeight": 500,
+    "terminal.integrated.fontFamily": "mononoki Nerd Font",
+    // "terminal.integrated.fontFamily": "Cascadia Code",
+    // "terminal.integrated.fontSize": 15,
+    "terminal.integrated.fontSize": 16,
+    // "editor.fontSize": 14,
+    // "editor.fontWeight": "bold",
+    "editor.wordWrap": "on",
+    "files.autoSaveDelay": 400,
+    "code-runner.executorMap": {
+        "html": "firefox $fileName"
+        // "shellscript": "shellcheck $fileName && bash $fileName",
+    },
+    "code-runner.executorMapByFileExtension": {
+        ".m": "octave $fileName",
+        ".mat": "octave $fileName"
+    },
+    "code-runner.runInTerminal": true,
+    "code-runner.saveFileBeforeRun": true,
+    // "workbench.colorCustomizations": {
+    //     "terminal.foreground": "#bbc5ff",
+    //     "terminal.background": "#282a36",
+    //     "terminal.ansiBlack": "#101010",
+    //     "terminal.ansiBrightBlack": "#5c6179",
+    //     "terminal.ansiRed": "#f07178",
+    //     "terminal.ansiBrightRed": "#ff8b92",
+    //     "terminal.ansiGreen": "#c3e88d",
+    //     "terminal.ansiBrightGreen": "#ddffa7",
+    //     "terminal.ansiYellow": "#ffcb6b",
+    //     "terminal.ansiBrightYellow": "#ffe585",
+    //     "terminal.ansiBlue": "#82aaff",
+    //     "terminal.ansiBrightBlue": "#9cc4ff",
+    //     "terminal.ansiMagenta": "#c792ea",
+    //     "terminal.ansiBrightMagenta": "#e1acff",
+    //     "terminal.ansiCyan": "#89ddff",
+    //     "terminal.ansiBrightCyan": "#a3f7ff",
+    //     "terminal.ansiWhite": "#d0d0d0",
+    //     "terminal.ansiBrightWhite": "#ffffff",
+    // },
+    "terminal.integrated.cursorBlinking": true,
+    "window.titleBarStyle": "custom",
+    "workbench.colorCustomizations": {
+        // "titleBar.activeBackground": "#282c34"
+        "titleBar.activeBackground": "#1D1E22"
+    },
+    "python.linting.pylintArgs": ["--extension-pkg-whitelist=pygame"],
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter-notebook"
+    },
+    "jupyter.askForKernelRestart": false,
+    "latex-workshop.view.pdf.viewer": "tab",
+    "python.linting.enabled": false,
+    "python.linting.lintOnSave": false,
+    "python.linting.pylintEnabled": false,
+    "python.linting.pylintUseMinimalCheckers": true,
+    "editor.acceptSuggestionOnEnter": "off",
+    "workbench.iconTheme": "material-icon-theme",
+    "open-in-browser.default": "firefox",
+    "editor.suggestSelection": "first",
+    "files.exclude": {
+        "**/__pycache__": true,
+        "**/.DS_Store": false,
+        "**/.git": false
+    },
+    "workbench.colorTheme": "Palenight Operator",
+    "python.analysis.autoImportCompletions": false,
+    // "editor.defaultFormatter": "esbenp.prettier-vscode",
+    // "[javascript, vue]": {
+    //   "editor.defaultFormatter": "esbenp.prettier-vscode"
+    // },
+    "python.formatting.provider": "black",
+    "[vue]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "vetur.format.options.tabSize": 4,
+    "vetur.format.defaultFormatterOptions": {
+        "prettier": {
+            "printWidth": 500,
+            "trailingComma": "<none>"
+        }
+    },
+    "vetur.completion.autoImport": false,
+    "prettier.printWidth": 500,
+    "prettier.trailingComma": "none",
+    "prettier.tabWidth": 4,
+    "dart.flutterSdkPath": "/home/artur/Downloads/download-flutter/flutter",
+    "[dart]": {
+        "editor.formatOnSave": true,
+        "editor.formatOnType": true,
+        "editor.rulers": [80],
+        "editor.selectionHighlight": false,
+        "editor.suggest.snippetsPreventQuickSuggestions": false,
+        "editor.suggestSelection": "first",
+        "editor.tabCompletion": "onlySnippets",
+        "editor.wordBasedSuggestions": false
+    },
+    "go.toolsManagement.autoUpdate": true,
+    "svelte.enable-ts-plugin": true,
+    "svelte.plugin.svelte.note-new-transformation": false,
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "editor.formatOnSave": true
+}
+
